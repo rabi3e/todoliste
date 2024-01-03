@@ -15,4 +15,4 @@ class List(models.Model):
         verbose_name_plural = "Lists"
 
     def __str__(self):
-        return self.item
+        return f"{self.item} create at  {self.create_time.time()}   update at {self.update.time()} "
