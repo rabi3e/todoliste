@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block title %} Home Page{% endblock title %}
 {% block content %}
-    <h1>Home Page</h1>
+    
+</br>
+
+{% if items %}
+<ul>
+    <h1>List of Items To do</h1>
+    {% for it in items  %}
+        <li>item :{{it.item}}  Statut: {{it.completed}} creation Date : {{it.create_time}}  update Date : {{it.update}} </li>
+    {% endfor %}
+{% else %}
+    <h1>No Item To do</h1>
+</ul>
+{% endif %}
 {% endblock content %}
    
