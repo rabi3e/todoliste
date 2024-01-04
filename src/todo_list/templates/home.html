@@ -18,7 +18,7 @@
             {% for it in items  %}
                 {% if it.completed %}
                     <tr class ="table-success text-center">
-                        <td>{{it.item}}  </td>
+                        <td class="text-decoration-line-through">{{it.item}}  </td>
                         <td>{{it.completed}} </td>
                         <td>{{it.create_time}} </td>
                         <td>{{it.update}} </td>
