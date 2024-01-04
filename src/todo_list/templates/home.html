@@ -4,6 +4,14 @@
     
 </br>
 
+{% if messages  %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {% for mes in messages  %}
+        <strong>{{mes}}</strong>
+    {% endfor %}
+    </div>
+{% endif %}
 {% if items %}
     <h1>List of Items To do</h1>
 </br>
