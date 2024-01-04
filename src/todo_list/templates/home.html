@@ -28,7 +28,7 @@
                 {% if it.completed %}
                     <tr class ="table-success text-center">
                         <td class="text-decoration-line-through">{{it.item}}  </td>
-                        <td>{{it.completed}} </td>
+                        <td><a href="{% url 'uncomplete' it.id %}"> Completed </a> </td>
                         <td>{{it.create_time}} </td>
                         <td>{{it.update}} </td>
                         <td > <a href ="{% url 'delete' it.id %}" > Delete</a></td>
@@ -36,7 +36,7 @@
                 {% else %}
                     <tr class="text-center">
                         <td>{{it.item}}  </td>
-                        <td>{{it.completed}} </td>
+                        <td><a href="{% url 'complete' it.id %}"> Uncomplet </a> </td>
                         <td>{{it.create_time}} </td>
                         <td>{{it.update}} </td>
                         <td > <a href ="{% url 'delete' it.id %}" > Delete</a></td>

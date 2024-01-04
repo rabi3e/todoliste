@@ -23,6 +23,18 @@ def home(request):
 def about(request):
     return render(request, 'about.html', {})
 
+def complete(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed =True
+    item.save()
+    return redirect  ('home') 
+
+def uncomplete(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed =False
+    item.save()
+    return redirect  ('home') 
+
 def delete(request, list_id):
     item = List.objects.get(pk=list_id)
     item.delete()
