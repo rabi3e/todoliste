@@ -21,6 +21,7 @@
             <td > statu </td>
             <td >create time </td>
             <td >last update</td>
+            <td >Delete</td>
         </thead>
         <tbody>
             {% for it in items  %}
@@ -30,6 +31,7 @@
                         <td>{{it.completed}} </td>
                         <td>{{it.create_time}} </td>
                         <td>{{it.update}} </td>
+                        <td > <a href ="{% url 'delete' it.id %}" > Delete</a></td>
                     </tr>
                 {% else %}
                     <tr class="text-center">
@@ -37,6 +39,7 @@
                         <td>{{it.completed}} </td>
                         <td>{{it.create_time}} </td>
                         <td>{{it.update}} </td>
+                        <td > <a href ="{% url 'delete' it.id %}" > Delete</a></td>
                     </tr>
 
                 {% endif %}

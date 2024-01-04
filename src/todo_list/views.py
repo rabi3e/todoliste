@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import List
 from .forms import ListForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+
 
 # Create your views here.
 def home(request):
 
     if request.method=="POST":
-        form = ListForm(request.POST)
+        form = ListForm(request.POST or None)
         if form.is_valid():
             form.save()
             items = List.objects.all
@@ -20,3 +22,9 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+def delete(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.delete()
+    messages.warning(request, (' Item Has Been Deleted !!!!'))
+    return redirect  ('home') 
